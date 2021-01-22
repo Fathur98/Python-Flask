@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}UBAH NASABAH{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content %}
+<h1 class="heading" style="text-align: center; padding: auto"><b>UBAH NASABAH</b></h1>
+<form action="/edit/{{task.id}}" method="POST">
+    <div class="form-group row">
+        <label for="nim">NIK NASABAH</label>
+        <input type="number" class="form-control" name="nim" placeholder="Masukkan NIK Karyawan" value="{{task.nim}}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group row">
+        <label for="nama">NAMA NASABAH</label>
+        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Karyawan" value="{{task.nama}}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group row">
+        <label for="alamat">ALAMAT NASABAH</label>
+        <input type="text" class="form-control" name="alamat" placeholder="Masukkan Alamat Karyawan" value="{{task.alamat}}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="submit" id="kirim" class="btn btn-info">Kirim !</button>
+        <a href="/">
+            <button type="button" name="button" id="kembali" class="btn btn-info">Kembali</button>
+        </a>
+    </div>
+</form>
+{% endblock content %}   

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}DAFTAR NASABAH{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content %}
+  <h1 style="text-align: center"><b>DAFTAR NASABAH</b></h1>
+  <a href="/add">
+    <button type="button" class="btn btn-primary">TAMBAH NASABAH</button>
+  </a>
+  <br>
+  <br>
+  <table border="3" id="customers">
+    <thead>
+      <th style="text-align: center">AKSI</th>
+      <th style="text-align: center">NO</th>
+      <th style="text-align: center">NIK NASABAH</th>
+      <th style="text-align: center">NAMA NASABAH</th>
+      <th style="text-align: center">ALAMAT NASABAH</th>
+    </thead><script>
+        let i = 1;
+    </script>
+    <tbody>
+      {% for task in tasks %}  
+    <tr>  
+      <td style="text-align: center">
+        <a href="/edit/{{task.id}}">
+          <button type="button" class="btn btn-info">Ubah</button>
+        </a>
+        <a href="/delete/{{task.id}}">
+          <button type="button" class="btn btn-danger">Hapus</button>
+        </a>
+      </td>
+      <td style="text-align: center">
+            <script>document.write(i)</script>
+      </td>
+      <td style="text-align: center">{{ task.nim }}</td>  
+      <td style="text-align: center">{{ task.nama }}</td>  
+      <td style="text-align: center">{{ task.alamat }}</td>  
+      <script>
+            i++;
+      </script>
+    </tr>  
+      {% endfor %} 
+  </tbody>
+</table>
+{% endblock content %}
